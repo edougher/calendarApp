@@ -15,13 +15,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var month: UILabel!
+    @IBOutlet weak var dayWasTapped: customCell!
+    
+    
     
     // Text Color for InMonth, OutMonth, and Current Month
     
     let outSideMonthColor = UIColor.gray
     let currentMonthColor = UIColor.white
-    let selectedMonthColor = UIColor.orange
-    let currentDateSelectedColor = UIColor.red
+    let selectedMonthColor = UIColor.black
+    let currentDateSelectedColor = UIColor.black
     
     let formatter = DateFormatter()
     
@@ -29,13 +32,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
      
         setupCalendar()
+        labelSetup()
 
+    }
+    
+    // Sets up UILabels to current month/year on initial load
+    func labelSetup(){
         
+        let currentMonthFormatter = DateFormatter()
+        let currentYearFormatter = DateFormatter()
+        currentMonthFormatter.dateFormat = "MMMM"
+        currentYearFormatter.dateFormat = "yyyy"
+        let todaysMonth = currentMonthFormatter.string(from: Date())
+        let todaysYear = currentYearFormatter.string(from: Date())
+        
+        self.month.text = todaysMonth
+        self.year.text = todaysYear
     }
     
     func setupCalendar() {
+        
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
+        
     }
     
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState) {
@@ -62,15 +81,11 @@ extension ViewController: JTAppleCalendarViewDataSource{
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
         
-        
-        // Remember to un-force unwrap
-        
-        let startDate = formatter.date(from: "2018 01 01")
+        let currentDate = Date()
+        let startDate = currentDate
         let endDate = formatter.date(from: "2019 12 31")
-        
-        
-        
-        let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
+    
+        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate!)
         return parameters
     }
 }
@@ -110,6 +125,8 @@ extension ViewController: JTAppleCalendarViewDelegate {
         handleCellTextColor(view: cell, cellState: cellState)
         
         validCell.selectedView.isHidden = false
+        
+      
       }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -126,19 +143,12 @@ extension ViewController: JTAppleCalendarViewDelegate {
         formatter.dateFormat = "yyyy"
         year.text = formatter.string(from: date)
         
-    formatter.dateFormat = "MMMM"
-    month.text = formatter.string(from: date)
-
-    //current calendar as index
-    print (calendar.currentSection())
-
-    formatter.locale = Locale(identifier: "en_US")
-
-    //getting current date as string
-    print(formatter.string(from: date))
-
-    //calendarView.reloadData()
-
+        formatter.dateFormat = "MMMM"
+        month.text = formatter.string(from: date)
         
     }
+    
+    
+    
+    
 }

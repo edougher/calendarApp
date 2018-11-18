@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A4F8E83532CCBB43F14D7B6 /* Pods_calendarApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7584B53F98A7697832056E3D /* Pods_calendarApp.framework */; };
 		9366DC48217E861C00BB38DC /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9366DC47217E861C00BB38DC /* customCell.swift */; };
+		936C9140219FC242002DAAD6 /* hoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C913F219FC242002DAAD6 /* hoursViewController.swift */; };
 		93770DE32171B09A00C7EC0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93770DE22171B09A00C7EC0C /* AppDelegate.swift */; };
 		93770DE52171B09A00C7EC0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93770DE42171B09A00C7EC0C /* ViewController.swift */; };
 		93770DE82171B09A00C7EC0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93770DE62171B09A00C7EC0C /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 		59B05B9796B1B0593AEE772B /* Pods-calendarApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calendarApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-calendarApp/Pods-calendarApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7584B53F98A7697832056E3D /* Pods_calendarApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_calendarApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9366DC47217E861C00BB38DC /* customCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
+		936C913E219DC213002DAAD6 /* Dates.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Dates.playground; path = /Users/aaron/Desktop/calendarApp/calendarApp/Dates.playground; sourceTree = "<absolute>"; };
+		936C913F219FC242002DAAD6 /* hoursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hoursViewController.swift; sourceTree = "<group>"; };
 		93770DDF2171B09A00C7EC0C /* calendarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calendarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93770DE22171B09A00C7EC0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93770DE42171B09A00C7EC0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +80,9 @@
 				93770DE22171B09A00C7EC0C /* AppDelegate.swift */,
 				93770DE42171B09A00C7EC0C /* ViewController.swift */,
 				9366DC47217E861C00BB38DC /* customCell.swift */,
+				936C913F219FC242002DAAD6 /* hoursViewController.swift */,
 				93770DE62171B09A00C7EC0C /* Main.storyboard */,
+				936C913E219DC213002DAAD6 /* Dates.playground */,
 				93770DEC2171B09B00C7EC0C /* Assets.xcassets */,
 				93770DEE2171B09B00C7EC0C /* LaunchScreen.storyboard */,
 				93770DF12171B09B00C7EC0C /* Info.plist */,
@@ -214,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				936C9140219FC242002DAAD6 /* hoursViewController.swift in Sources */,
 				93770DE52171B09A00C7EC0C /* ViewController.swift in Sources */,
 				93770DE32171B09A00C7EC0C /* AppDelegate.swift in Sources */,
 				9366DC48217E861C00BB38DC /* customCell.swift in Sources */,
