@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -17,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var dayWasTapped: customCell!
     
+    var selectedDay: String!
+    
+ 
     
     
     // Text Color for InMonth, OutMonth, and Current Month
@@ -24,7 +28,7 @@ class ViewController: UIViewController {
     let outSideMonthColor = UIColor.gray
     let currentMonthColor = UIColor.white
     let selectedMonthColor = UIColor.black
-    let currentDateSelectedColor = UIColor.black
+    let currentDateSelectedColor = UIColor.red
     
     let formatter = DateFormatter()
     
@@ -52,15 +56,20 @@ class ViewController: UIViewController {
     
     func setupCalendar() {
         
-        calendarView.minimumLineSpacing = 0
-        calendarView.minimumInteritemSpacing = 0
+       calendarView.minimumLineSpacing = 0
+       calendarView.minimumInteritemSpacing = 0
         
     }
     
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? customCell else {return}
         
+      // let currentDayFormatter = DateFormatter()
+      // currentDayFormatter.dateFormat = "DD"
+        
+        
         if cellState.isSelected {
+            
             validCell.dateLabel.textColor = selectedMonthColor
         } else {
             if cellState.dateBelongsTo == .thisMonth {
@@ -101,8 +110,11 @@ extension ViewController: JTAppleCalendarViewDelegate {
 
         myCustomCell.dateLabel.text = cellState.text
         
+        
+        
         if cellState.isSelected {
             myCustomCell.selectedView.isHidden = false
+            
         } else {
             myCustomCell.selectedView.isHidden = true
         }
@@ -118,24 +130,52 @@ extension ViewController: JTAppleCalendarViewDelegate {
         
     }
     
+    
+    
+    
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         
-        guard let validCell = cell as? customCell else {return}
+        
+        
+       guard let validCell = cell as? customCell else {return}
         
         handleCellTextColor(view: cell, cellState: cellState)
         
         validCell.selectedView.isHidden = false
+
+        formatter.dateFormat = "MMMM dd"
+        let currentDay = formatter.string(from: date)
+    
+        self.selectedDay = currentDay
+        performSegue(withIdentifier: "toHrsVC", sender: self)
         
-      
-      }
+        print(currentDay)
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let hrsVC = segue.destination as? hoursViewController else {return}
+        hrsVC.dateLbl = self.selectedDay
+        }
+    
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+            
+            
         guard let validCell = cell as? customCell else {return}
         
         handleCellTextColor(view: cell, cellState: cellState)
         
         validCell.selectedView.isHidden = true
-    }
+        
+        
+        
+        
+        }
+    
+
+    
+    
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
@@ -148,7 +188,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
         
     }
     
-    
+    @IBAction func didUnwindFromViewController(_ sender:UIStoryboardSegue) {}
     
     
 }

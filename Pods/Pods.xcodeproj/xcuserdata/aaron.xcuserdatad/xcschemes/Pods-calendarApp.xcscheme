@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B18EB39A9E3BABE08EAA2D0A7C7A78DC"
+               BlueprintIdentifier = "B83FFF69DEBED42BF7D9FF53FD135B65"
                BuildableName = "Pods_calendarApp.framework"
                BlueprintName = "Pods-calendarApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B18EB39A9E3BABE08EAA2D0A7C7A78DC"
+            BlueprintIdentifier = "B83FFF69DEBED42BF7D9FF53FD135B65"
             BuildableName = "Pods_calendarApp.framework"
             BlueprintName = "Pods-calendarApp"
             ReferencedContainer = "container:Pods.xcodeproj">

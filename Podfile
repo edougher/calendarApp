@@ -8,5 +8,11 @@ target 'calendarApp' do
   # Pods for calendarApp
 
 	 pod 'JTAppleCalendar', '~> 7.0'
+	 pod 'Firebase/Core'
+	 pod 'Firebase/Auth'
+	 pod 'FirebaseUI/Auth'
+     pod 'Firebase/Database'
+     pod 'FirebaseUI'
+
 
 end
