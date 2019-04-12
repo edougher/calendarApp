@@ -11,8 +11,9 @@ target 'calendarApp' do
 	 pod 'Firebase/Core'
 	 pod 'Firebase/Auth'
 	 pod 'FirebaseUI/Auth'
-     pod 'Firebase/Database'
-     pod 'FirebaseUI'
+     	pod 'Firebase/Database'
+     	pod 'FirebaseUI'
+	pod 'SwiftFormat'
 
 
 end
